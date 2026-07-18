@@ -1,0 +1,315 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diego García Vera — Arquitecto de Software & AI Engineer</title>
+<meta name="description" content="CV de Diego García Vera: Arquitecto de Software e Ingeniero de IA especializado en hiperautomatización y sistemas multiagente B2B.">
+<style>
+  :root{
+    --bg:#0b1020;
+    --bg-soft:#111832;
+    --card:#ffffff;
+    --ink:#0f172a;
+    --ink-soft:#475569;
+    --muted:#64748b;
+    --line:#e2e8f0;
+    --accent:#6d5efc;
+    --accent-2:#00c2b2;
+    --accent-ink:#4f46e5;
+    --chip:#eef2ff;
+    --chip-ink:#4338ca;
+    --page:#f1f5f9;
+    --radius:16px;
+    --shadow:0 10px 30px rgba(15,23,42,.08);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--page);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-ink);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+
+  /* HERO */
+  .hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(1200px 400px at 85% -10%, rgba(109,94,252,.45), transparent 60%),
+      radial-gradient(900px 400px at 10% 0%, rgba(0,194,178,.35), transparent 55%),
+      linear-gradient(135deg,#0b1020,#141d3b);
+    color:#eef2ff;border-radius:24px;padding:38px 36px;box-shadow:var(--shadow);
+  }
+  .hero h1{margin:0;font-size:2.4rem;letter-spacing:.3px;line-height:1.1}
+  .hero .role{margin:.4rem 0 0;font-size:1.15rem;font-weight:600;color:#c7d2fe}
+  .hero .tag{margin:.5rem 0 0;font-size:1rem;color:#a5b4fc;max-width:70ch}
+  .contact{margin-top:20px;display:flex;flex-wrap:wrap;gap:10px}
+  .contact a,.contact span{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+    color:#eef2ff;padding:8px 12px;border-radius:999px;font-size:.9rem
+  }
+  .contact a:hover{background:rgba(255,255,255,.16);text-decoration:none}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 0 4px rgba(0,194,178,.18)}
+
+  /* METRICS */
+  .metrics{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:22px 0 8px}
+  .metric{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
+  .metric b{display:block;font-size:1.5rem;color:var(--accent-ink);line-height:1.1}
+  .metric small{color:var(--muted);font-size:.76rem;display:block;margin-top:4px}
+
+  /* LAYOUT */
+  .grid{display:grid;grid-template-columns:1.9fr 1fr;gap:22px;margin-top:22px}
+  .col{display:flex;flex-direction:column;gap:22px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow)}
+  .card h2{
+    margin:0 0 14px;font-size:1.05rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent-ink);
+    display:flex;align-items:center;gap:10px
+  }
+  .card h2::before{content:"";width:22px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+
+  /* EXPERIENCE */
+  .job{padding:16px 0;border-top:1px dashed var(--line)}
+  .job:first-of-type{padding-top:2px;border-top:none}
+  .job .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+  .job .pos{font-weight:700;font-size:1.05rem;color:var(--ink)}
+  .job .co{color:var(--accent-ink);font-weight:600}
+  .job .when{color:var(--muted);font-size:.82rem;white-space:nowrap}
+  .job ul{margin:10px 0 12px;padding-left:18px}
+  .job li{margin:5px 0;color:var(--ink-soft)}
+  .job li b{color:var(--ink)}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .tag-chip{background:var(--chip);color:var(--chip-ink);font-size:.74rem;font-weight:600;padding:4px 9px;border-radius:7px;border:1px solid #e0e7ff}
+
+  /* SKILLS */
+  .skillgroup{margin-bottom:14px}
+  .skillgroup h3{margin:0 0 7px;font-size:.82rem;color:var(--ink);text-transform:uppercase;letter-spacing:.6px}
+  .skillgroup .tags .tag-chip{background:#f8fafc;color:var(--ink-soft);border-color:var(--line)}
+
+  .mini{margin:0;padding:0;list-style:none}
+  .mini li{padding:7px 0;border-top:1px solid var(--line);color:var(--ink-soft);font-size:.92rem}
+  .mini li:first-child{border-top:none}
+  .mini li b{color:var(--ink);display:block}
+
+  .lang{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-top:1px solid var(--line)}
+  .lang:first-child{border-top:none}
+  .bar{width:120px;height:7px;border-radius:99px;background:#e5e7eb;overflow:hidden}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+
+  .note{font-size:.78rem;color:var(--muted);margin-top:10px}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:30px}
+
+  @media (max-width:820px){
+    .grid{grid-template-columns:1fr}
+    .metrics{grid-template-columns:repeat(2,1fr)}
+    .hero h1{font-size:1.9rem}
+    .hero{padding:28px 22px}
+  }
+
+  /* PRINT / PDF */
+  @media print{
+    body{background:#fff}
+    .wrap{max-width:100%;padding:0}
+    .hero{background:#0b1020 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;border-radius:0}
+    .card,.metric{box-shadow:none;border-color:#d7dee8}
+    .grid{gap:14px}
+    .noprint{display:none !important}
+    a{color:var(--ink)}
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <h1>Diego García Vera</h1>
+    <p class="role">Arquitecto de Software &amp; AI Engineer</p>
+    <p class="tag">Especialista en hiperautomatización, sistemas multiagente y &laquo;Sistemas Operativos Corporativos&raquo; B2B. Transformo el caos operativo de las PYMEs en ecosistemas digitales escalables.</p>
+    <div class="contact">
+      <span><span class="dot"></span> Soria, España · Remoto</span>
+      <a href="mailto:diegogar11@gmail.com">✉ diegogar11@gmail.com</a>
+      <a href="https://official-dus-o-lai.pages.dev/" target="_blank" rel="noopener">🌐 Portfolio DUSOLAI</a>
+      <a href="https://consultor-tecnologico-diego-ia.pages.dev/" target="_blank" rel="noopener">🧠 Consultor IA</a>
+      <a href="https://github.com/dusolai" target="_blank" rel="noopener">⌥ GitHub</a>
+    </div>
+  </header>
+
+  <section class="metrics">
+    <div class="metric"><b>+50</b><small>Proyectos entregados</small></div>
+    <div class="metric"><b>95%</b><small>Satisfacción cliente</small></div>
+    <div class="metric"><b>3×</b><small>ROI medio</small></div>
+    <div class="metric"><b>+35%</b><small>Retorno anual (trading IA)</small></div>
+    <div class="metric"><b>−70%</b><small>Costes vía RPA</small></div>
+    <div class="metric"><b>313%</b><small>ROI proyectado (3 años)</small></div>
+  </section>
+
+  <div class="grid">
+    <!-- MAIN COLUMN -->
+    <div class="col">
+
+      <section class="card">
+        <h2>Perfil profesional</h2>
+        <p style="margin:0;color:var(--ink-soft)">
+          Físico y matemático reconvertido en <b>Arquitecto de Software Full-Stack</b> y <b>Consultor de IA</b>.
+          Diseño e implemento sistemas operativos corporativos mediante <b>arquitecturas multiagente</b>, integrando
+          LLMs, bases de datos vectoriales y orquestación de flujos (n8n). Combino rigor algorítmico con una visión
+          orientada a <b>ROI y viabilidad de negocio</b>: no construyo webs, construyo &laquo;cerebros digitales&raquo;
+          que conectan operaciones, logística y ventas para escalar empresas.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Experiencia</h2>
+
+        <div class="job">
+          <div class="top">
+            <div><span class="pos">CEO · CTO · Lead AI Engineer</span> — <span class="co">DUSOLAI Solutions, S.L.</span></div>
+            <span class="when">20XX — Actualidad</span>
+          </div>
+          <ul>
+            <li>Lideré <b>+50 proyectos</b> con un <b>95% de satisfacción</b> de clientes y un <b>ROI medio de 3×</b>.</li>
+            <li>Desarrollé algoritmos de <b>trading financiero con IA</b> (SPY, BTC/USD) con un <b>retorno anualizado del +35%</b>.</li>
+            <li>Implementé <b>RPA e hiperautomatización</b> reduciendo costes operativos <b>hasta un 70%</b>.</li>
+            <li>Diseñé <b>arquitecturas multiagente</b> (n8n, OpenClaw) y productos SaaS internos (KAIROS, The Unstoppable Factory) con LLMs.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag-chip">Python</span><span class="tag-chip">FastAPI</span><span class="tag-chip">React</span>
+            <span class="tag-chip">Next.js</span><span class="tag-chip">n8n</span><span class="tag-chip">Supabase</span>
+            <span class="tag-chip">PostgreSQL</span><span class="tag-chip">Pinecone</span><span class="tag-chip">OpenAI / Claude / Gemini API</span>
+            <span class="tag-chip">Docker</span>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="top">
+            <div><span class="pos">Consultor Tecnológico · Arquitecto de Sistemas</span> — <span class="co">JMV Logística y Transporte</span></div>
+            <span class="when">20XX — Actualidad</span>
+          </div>
+          <ul>
+            <li>Diseñé y justifiqué un <b>Plan de Transformación Digital 360º</b> (ERP Gestiona + CRM): <b>ROI 313% a 3 años</b>, ahorro de <b>11.100 €/año</b> y <b>−50%</b> en tiempo administrativo.</li>
+            <li>Arquitecté un <b>Sistema Multiagente Híbrido (MVP)</b> y un WMS a medida, integrando bases de datos legacy (SAGE) con una <b>app Android nativa</b> para operarios.</li>
+            <li>Construí un &laquo;Cerebro Infinito&raquo; (<b>RAG + visión artificial</b>) para la identificación automática de recambios vía WhatsApp.</li>
+            <li>Redacté el <b>Manual Corporativo</b> y los <b>SOPs</b> de operaciones, almacén y flota.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag-chip">Python</span><span class="tag-chip">FastAPI</span><span class="tag-chip">n8n</span>
+            <span class="tag-chip">PostgreSQL</span><span class="tag-chip">Android (Kotlin)</span><span class="tag-chip">OCR / NLP</span>
+            <span class="tag-chip">Machine Learning</span><span class="tag-chip">Integración SAGE</span>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="top">
+            <div><span class="pos">Tech &amp; Marketing Lead · Socio Operativo</span> — <span class="co">Frecuenzy (Sala Multiespacios)</span></div>
+            <span class="when">20XX — Actualidad</span>
+          </div>
+          <ul>
+            <li>Desarrollé de cero un <b>CRM propio + sistema de ticketing</b> (React/Vite + Supabase) para stock en tiempo real, empleados, proveedores y finanzas.</li>
+            <li>Implementé venta de entradas con <b>Stripe</b> y <b>códigos QR dinámicos</b> enviados vía email y WhatsApp con orquestación en <b>n8n</b> (validación offline).</li>
+            <li>Lideré la estrategia de contenido con <b>IA generativa</b> (Veo 3, Midjourney, Flux) para la inauguración de una sala de <b>1.000 personas</b> en Cintruénigo.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag-chip">React</span><span class="tag-chip">Vite</span><span class="tag-chip">Tailwind CSS</span>
+            <span class="tag-chip">Stripe</span><span class="tag-chip">Supabase</span><span class="tag-chip">Cloudflare Pages/Workers</span>
+            <span class="tag-chip">n8n</span><span class="tag-chip">GenAI (vídeo/imagen)</span>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="top">
+            <div><span class="pos">Desarrollador · Consultor Digital</span> — <span class="co">Three Inmobiliaria (PropTech)</span></div>
+            <span class="when">20XX</span>
+          </div>
+          <ul>
+            <li>Desarrollé una <b>landing corporativa de alto rendimiento</b> para una red de agentes colaboradores.</li>
+            <li>Estructuré el <b>copy comercial</b> y la arquitectura de persuasión orientada a captación B2B.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag-chip">React</span><span class="tag-chip">HTML / CSS / JS</span><span class="tag-chip">Prompt Engineering</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="col">
+
+      <section class="card">
+        <h2>Habilidades</h2>
+
+        <div class="skillgroup">
+          <h3>IA &amp; LLMs</h3>
+          <div class="tags">
+            <span class="tag-chip">RAG</span><span class="tag-chip">Sistemas multiagente</span><span class="tag-chip">Pinecone</span>
+            <span class="tag-chip">OpenAI API</span><span class="tag-chip">Claude API</span><span class="tag-chip">Gemini API</span>
+            <span class="tag-chip">Prompt Engineering</span><span class="tag-chip">OpenClaw</span>
+          </div>
+        </div>
+
+        <div class="skillgroup">
+          <h3>Backend &amp; Datos</h3>
+          <div class="tags">
+            <span class="tag-chip">Python</span><span class="tag-chip">FastAPI</span><span class="tag-chip">PostgreSQL</span>
+            <span class="tag-chip">Supabase</span><span class="tag-chip">Docker</span>
+          </div>
+        </div>
+
+        <div class="skillgroup">
+          <h3>Frontend</h3>
+          <div class="tags">
+            <span class="tag-chip">React</span><span class="tag-chip">Next.js</span><span class="tag-chip">Vite</span>
+            <span class="tag-chip">TypeScript</span><span class="tag-chip">Tailwind CSS</span>
+          </div>
+        </div>
+
+        <div class="skillgroup">
+          <h3>Automatización &amp; RPA</h3>
+          <div class="tags">
+            <span class="tag-chip">n8n</span><span class="tag-chip">Make</span><span class="tag-chip">Zapier</span>
+            <span class="tag-chip">Stripe</span><span class="tag-chip">Integraciones API</span>
+          </div>
+        </div>
+
+        <div class="skillgroup">
+          <h3>Móvil &amp; GenAI media</h3>
+          <div class="tags">
+            <span class="tag-chip">Android (Kotlin)</span><span class="tag-chip">Midjourney</span><span class="tag-chip">Flux</span>
+            <span class="tag-chip">Veo 3</span><span class="tag-chip">Hailuo</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Formación</h2>
+        <ul class="mini">
+          <li><b>Física y Matemáticas</b>Base analítica aplicada a la arquitectura de software y los algoritmos.</li>
+        </ul>
+        <p class="note">↳ Añadir universidad y año.</p>
+      </section>
+
+      <section class="card">
+        <h2>Idiomas</h2>
+        <div class="lang"><span><b>Español</b> · Nativo</span><span class="bar"><i style="width:100%"></i></span></div>
+        <div class="lang"><span><b>Inglés</b> · Técnico/Profesional</span><span class="bar"><i style="width:65%"></i></span></div>
+        <p class="note">↳ Confirmar nivel oral (MCER).</p>
+      </section>
+
+      <section class="card">
+        <h2>Fortalezas</h2>
+        <ul class="mini">
+          <li><b>Pensamiento arquitectónico + de negocio</b>Traduzco software complejo en propuestas de ROI para dirección.</li>
+          <li><b>Ecosistemas end-to-end</b>Del backend y las BBDD vectoriales al frontend, la orquestación y los pagos.</li>
+          <li><b>Agilidad iterativa</b>MVPs a gran velocidad; adopción continua de nuevas tecnologías.</li>
+        </ul>
+      </section>
+
+    </div>
+  </div>
+
+  <footer>
+    Diego García Vera · CV interactivo · Actualizado 2026 — <span class="noprint">Pulsa <b>Ctrl/Cmd + P</b> para guardar como PDF</span>
+  </footer>
+
+</div>
