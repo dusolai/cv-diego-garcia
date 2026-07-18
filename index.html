@@ -1,234 +1,267 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Diego García Vera — Arquitecto de Software & AI Engineer</title>
-<meta name="description" content="CV de Diego García Vera: Arquitecto de Software e Ingeniero de IA especializado en hiperautomatización y sistemas multiagente B2B.">
+<meta name="description" content="Diego García Vera — Arquitecto de Software e Ingeniero de IA. Hiperautomatización, sistemas multiagente y LLMs para negocios B2B.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0b1020;
-    --bg-soft:#111832;
-    --card:#ffffff;
-    --ink:#0f172a;
-    --ink-soft:#475569;
-    --muted:#64748b;
-    --line:#e2e8f0;
-    --accent:#6d5efc;
-    --accent-2:#00c2b2;
-    --accent-ink:#4f46e5;
-    --chip:#eef2ff;
-    --chip-ink:#4338ca;
-    --page:#f1f5f9;
-    --radius:16px;
-    --shadow:0 10px 30px rgba(15,23,42,.08);
+    --bg:#05060e;
+    --bg-2:#0a0c1a;
+    --panel:rgba(255,255,255,.035);
+    --panel-2:rgba(255,255,255,.055);
+    --line:rgba(255,255,255,.09);
+    --line-2:rgba(255,255,255,.14);
+    --txt:#eef1fb;
+    --txt-2:#c3c9de;
+    --muted:#828aa6;
+    --v1:#8b5cff;
+    --v2:#22d3ee;
+    --v3:#f472d0;
+    --grad:linear-gradient(100deg,#a78bfa 0%,#8b5cff 40%,#22d3ee 100%);
+    --grad-soft:linear-gradient(100deg,rgba(139,92,255,.18),rgba(34,211,238,.14));
+    --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    --disp:"Space Grotesk",system-ui,sans-serif;
+    --sans:"Inter",system-ui,-apple-system,sans-serif;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
   body{
-    font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
-    color:var(--ink);
-    background:var(--page);
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
+    margin:0;font-family:var(--sans);color:var(--txt);background:var(--bg);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
-  a{color:var(--accent-ink);text-decoration:none}
-  a:hover{text-decoration:underline}
+  /* animated ambient background */
+  .bg-fx{position:fixed;inset:0;z-index:-2;background:var(--bg);overflow:hidden}
+  .bg-fx::before,.bg-fx::after{content:"";position:absolute;border-radius:50%;filter:blur(90px);opacity:.55}
+  .bg-fx::before{width:60vw;height:60vw;top:-18vw;right:-12vw;background:radial-gradient(circle,rgba(139,92,255,.55),transparent 62%);animation:float1 18s ease-in-out infinite}
+  .bg-fx::after{width:52vw;height:52vw;bottom:-16vw;left:-14vw;background:radial-gradient(circle,rgba(34,211,238,.42),transparent 62%);animation:float2 22s ease-in-out infinite}
+  .grid-fx{position:fixed;inset:0;z-index:-1;
+    background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-size:52px 52px;mask-image:radial-gradient(circle at 50% 0%,#000 0%,transparent 70%);opacity:.6}
+  @keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(-4vw,4vh)}}
+  @keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(4vw,-3vh)}}
 
-  .wrap{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:46px 22px 70px}
 
-  /* HERO */
-  .hero{
-    position:relative;overflow:hidden;
-    background:
-      radial-gradient(1200px 400px at 85% -10%, rgba(109,94,252,.45), transparent 60%),
-      radial-gradient(900px 400px at 10% 0%, rgba(0,194,178,.35), transparent 55%),
-      linear-gradient(135deg,#0b1020,#141d3b);
-    color:#eef2ff;border-radius:24px;padding:38px 36px;box-shadow:var(--shadow);
-  }
-  .hero h1{margin:0;font-size:2.4rem;letter-spacing:.3px;line-height:1.1}
-  .hero .role{margin:.4rem 0 0;font-size:1.15rem;font-weight:600;color:#c7d2fe}
-  .hero .tag{margin:.5rem 0 0;font-size:1rem;color:#a5b4fc;max-width:70ch}
-  .contact{margin-top:20px;display:flex;flex-wrap:wrap;gap:10px}
-  .contact a,.contact span{
-    display:inline-flex;align-items:center;gap:8px;
-    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
-    color:#eef2ff;padding:8px 12px;border-radius:999px;font-size:.9rem
-  }
-  .contact a:hover{background:rgba(255,255,255,.16);text-decoration:none}
-  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 0 4px rgba(0,194,178,.18)}
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding:8px 4px 6px}
+  .badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.76rem;letter-spacing:.5px;
+    color:var(--txt-2);background:var(--panel);border:1px solid var(--line);padding:7px 14px;border-radius:999px;text-transform:uppercase}
+  .badge .live{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 0 0 rgba(52,211,153,.6);animation:pulse 2.2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,.55)}70%{box-shadow:0 0 0 10px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+  h1{font-family:var(--disp);font-weight:700;font-size:clamp(2.6rem,7vw,4.6rem);line-height:1.02;letter-spacing:-1.5px;margin:20px 0 0}
+  h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .role{font-family:var(--disp);font-weight:600;font-size:clamp(1.1rem,2.6vw,1.5rem);color:var(--txt);margin:14px 0 0}
+  .role b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{max-width:64ch;color:var(--txt-2);font-size:1.06rem;margin:16px 0 0}
+  .cta{display:flex;flex-wrap:wrap;gap:11px;margin-top:26px}
+  .pill{display:inline-flex;align-items:center;gap:9px;font-size:.92rem;color:var(--txt-2);
+    background:var(--panel);border:1px solid var(--line);padding:10px 15px;border-radius:12px;
+    transition:.22s ease;backdrop-filter:blur(6px)}
+  .pill:hover{transform:translateY(-2px);border-color:var(--line-2);background:var(--panel-2);color:var(--txt)}
+  .pill.primary{background:var(--grad);color:#0a0716;font-weight:600;border:none;box-shadow:0 8px 26px rgba(139,92,255,.35)}
+  .pill.primary:hover{box-shadow:0 12px 34px rgba(139,92,255,.5)}
 
-  /* METRICS */
-  .metrics{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:22px 0 8px}
-  .metric{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
-  .metric b{display:block;font-size:1.5rem;color:var(--accent-ink);line-height:1.1}
-  .metric small{color:var(--muted);font-size:.76rem;display:block;margin-top:4px}
+  /* ---------- METRICS ---------- */
+  .metrics{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin:46px 0 8px}
+  .metric{position:relative;padding:20px 18px;border-radius:18px;background:var(--panel);border:1px solid var(--line);
+    overflow:hidden;transition:.25s ease}
+  .metric::before{content:"";position:absolute;inset:0;background:var(--grad-soft);opacity:0;transition:.25s}
+  .metric:hover{transform:translateY(-4px);border-color:var(--line-2)}
+  .metric:hover::before{opacity:1}
+  .metric b{position:relative;font-family:var(--disp);font-weight:700;font-size:1.85rem;line-height:1;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
+  .metric small{position:relative;display:block;margin-top:8px;color:var(--muted);font-size:.76rem;line-height:1.35}
 
-  /* LAYOUT */
-  .grid{display:grid;grid-template-columns:1.9fr 1fr;gap:22px;margin-top:22px}
+  /* ---------- LAYOUT ---------- */
+  .grid{display:grid;grid-template-columns:1.85fr 1fr;gap:22px;margin-top:26px;align-items:start}
   .col{display:flex;flex-direction:column;gap:22px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow)}
-  .card h2{
-    margin:0 0 14px;font-size:1.05rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent-ink);
-    display:flex;align-items:center;gap:10px
-  }
-  .card h2::before{content:"";width:22px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+  .card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:26px 28px;backdrop-filter:blur(8px)}
+  .card h2{font-family:var(--mono);margin:0 0 18px;font-size:.82rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);
+    display:flex;align-items:center;gap:12px}
+  .card h2::before{content:"";width:26px;height:3px;border-radius:3px;background:var(--grad)}
 
-  /* EXPERIENCE */
-  .job{padding:16px 0;border-top:1px dashed var(--line)}
-  .job:first-of-type{padding-top:2px;border-top:none}
+  .lede2{margin:0;color:var(--txt-2);font-size:1rem}
+  .lede2 b{color:var(--txt);font-weight:600}
+  .lede2 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600}
+
+  /* ---------- EXPERIENCE ---------- */
+  .job{position:relative;padding:22px 0 22px 26px;border-left:1px solid var(--line);margin-left:6px}
+  .job:last-child{padding-bottom:2px}
+  .job::before{content:"";position:absolute;left:-6px;top:26px;width:11px;height:11px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--v1);box-shadow:0 0 0 4px rgba(139,92,255,.15)}
   .job .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
-  .job .pos{font-weight:700;font-size:1.05rem;color:var(--ink)}
-  .job .co{color:var(--accent-ink);font-weight:600}
-  .job .when{color:var(--muted);font-size:.82rem;white-space:nowrap}
-  .job ul{margin:10px 0 12px;padding-left:18px}
-  .job li{margin:5px 0;color:var(--ink-soft)}
-  .job li b{color:var(--ink)}
-  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-  .tag-chip{background:var(--chip);color:var(--chip-ink);font-size:.74rem;font-weight:600;padding:4px 9px;border-radius:7px;border:1px solid #e0e7ff}
+  .job .pos{font-family:var(--disp);font-weight:600;font-size:1.12rem;color:var(--txt)}
+  .job .co{color:transparent;background:var(--grad);-webkit-background-clip:text;background-clip:text;font-weight:600}
+  .job .when{font-family:var(--mono);color:var(--muted);font-size:.76rem;white-space:nowrap}
+  .job ul{margin:12px 0 14px;padding-left:18px}
+  .job li{margin:7px 0;color:var(--txt-2)}
+  .job li b{color:var(--txt);font-weight:600}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+  .chip{font-family:var(--mono);font-size:.72rem;color:var(--txt-2);background:rgba(255,255,255,.04);
+    border:1px solid var(--line);padding:5px 10px;border-radius:8px;transition:.2s}
+  .chip:hover{border-color:var(--v1);color:var(--txt)}
 
-  /* SKILLS */
-  .skillgroup{margin-bottom:14px}
-  .skillgroup h3{margin:0 0 7px;font-size:.82rem;color:var(--ink);text-transform:uppercase;letter-spacing:.6px}
-  .skillgroup .tags .tag-chip{background:#f8fafc;color:var(--ink-soft);border-color:var(--line)}
-
+  /* ---------- SIDEBAR ---------- */
+  .sg{margin-bottom:18px}
+  .sg:last-child{margin-bottom:0}
+  .sg h3{font-family:var(--mono);margin:0 0 9px;font-size:.74rem;letter-spacing:1px;text-transform:uppercase;color:var(--txt)}
   .mini{margin:0;padding:0;list-style:none}
-  .mini li{padding:7px 0;border-top:1px solid var(--line);color:var(--ink-soft);font-size:.92rem}
+  .mini li{padding:11px 0;border-top:1px solid var(--line);color:var(--txt-2);font-size:.92rem}
   .mini li:first-child{border-top:none}
-  .mini li b{color:var(--ink);display:block}
-
-  .lang{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-top:1px solid var(--line)}
+  .mini li b{display:block;color:var(--txt);font-family:var(--disp);font-weight:600;margin-bottom:2px}
+  .lang{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
   .lang:first-child{border-top:none}
-  .bar{width:120px;height:7px;border-radius:99px;background:#e5e7eb;overflow:hidden}
-  .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+  .lang span b{font-family:var(--disp)}
+  .bar{width:110px;height:6px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;flex:none}
+  .bar i{display:block;height:100%;background:var(--grad);border-radius:99px}
+  .note{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin:12px 0 0}
 
-  .note{font-size:.78rem;color:var(--muted);margin-top:10px}
-  footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:30px}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:40px;font-family:var(--mono)}
+  footer .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-  @media (max-width:820px){
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:860px){
     .grid{grid-template-columns:1fr}
     .metrics{grid-template-columns:repeat(2,1fr)}
-    .hero h1{font-size:1.9rem}
-    .hero{padding:28px 22px}
+    .card{padding:22px 20px}
   }
 
-  /* PRINT / PDF */
+  /* ---------- PRINT / PDF ---------- */
   @media print{
-    body{background:#fff}
+    @page{margin:14mm}
+    body{background:#fff;color:#0f172a}
+    .bg-fx,.grid-fx,.cta,.badge .live,.note{display:none !important}
     .wrap{max-width:100%;padding:0}
-    .hero{background:#0b1020 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;border-radius:0}
-    .card,.metric{box-shadow:none;border-color:#d7dee8}
-    .grid{gap:14px}
-    .noprint{display:none !important}
-    a{color:var(--ink)}
+    .card,.metric{background:#fff !important;border:1px solid #dbe1ec !important;backdrop-filter:none;break-inside:avoid}
+    h1{color:#0f172a}
+    h1 .g,.role b,.metric b,.job .co,.lede2 .hl,footer .g{-webkit-text-fill-color:#5b3df5;color:#5b3df5}
+    .lede,.lede2,.job li,.mini li,.metric small{color:#334155}
+    .pos,.mini li b,.card h2{color:#0f172a}
+    .reveal{opacity:1 !important;transform:none !important}
+    .job{border-left:1px solid #dbe1ec}
+    .chip{color:#475569;border-color:#dbe1ec}
   }
 </style>
 
+<div class="bg-fx"></div>
+<div class="grid-fx"></div>
+
 <div class="wrap">
 
-  <header class="hero">
-    <h1>Diego García Vera</h1>
-    <p class="role">Arquitecto de Software &amp; AI Engineer</p>
-    <p class="tag">Especialista en hiperautomatización, sistemas multiagente y &laquo;Sistemas Operativos Corporativos&raquo; B2B. Transformo el caos operativo de las PYMEs en ecosistemas digitales escalables.</p>
-    <div class="contact">
-      <span><span class="dot"></span> Soria, España · Remoto</span>
-      <a href="tel:+34667550070">📱 667 55 00 70</a>
-      <a href="mailto:diegogar11@gmail.com">✉ diegogar11@gmail.com</a>
-      <a href="https://official-dus-o-lai.pages.dev/" target="_blank" rel="noopener">🌐 Portfolio DUSOLAI</a>
-      <a href="https://consultor-tecnologico-diego-ia.pages.dev/" target="_blank" rel="noopener">🧠 Consultor IA</a>
-      <a href="https://github.com/dusolai" target="_blank" rel="noopener">⌥ GitHub</a>
+  <!-- HERO -->
+  <header class="hero reveal">
+    <span class="badge"><span class="live"></span> Disponible · Remoto · Freelance</span>
+    <h1>Diego <span class="g">García Vera</span></h1>
+    <p class="role">Arquitecto de Software &amp; <b>AI Engineer</b></p>
+    <p class="lede">Físico y matemático reconvertido en arquitecto de sistemas de IA. Construyo &laquo;cerebros digitales&raquo; —arquitecturas multiagente, RAG y automatización— que convierten el caos operativo de las PYMEs en ecosistemas escalables.</p>
+    <div class="cta">
+      <a class="pill primary" href="mailto:diegogar11@gmail.com">✉ Contáctame</a>
+      <a class="pill" href="tel:+34667550070">📱 667 55 00 70</a>
+      <a class="pill" href="https://official-dus-o-lai.pages.dev/" target="_blank" rel="noopener">🌐 Portfolio DUSOLAI</a>
+      <a class="pill" href="https://consultor-tecnologico-diego-ia.pages.dev/" target="_blank" rel="noopener">🧠 Consultor IA</a>
+      <a class="pill" href="https://github.com/dusolai" target="_blank" rel="noopener">⌥ GitHub</a>
+      <a class="pill" href="javascript:window.print()">⇩ PDF</a>
     </div>
   </header>
 
-  <section class="metrics">
+  <!-- METRICS -->
+  <section class="metrics reveal">
     <div class="metric"><b>+50</b><small>Proyectos entregados</small></div>
     <div class="metric"><b>95%</b><small>Satisfacción cliente</small></div>
     <div class="metric"><b>3×</b><small>ROI medio</small></div>
-    <div class="metric"><b>+35%</b><small>Retorno anual (trading IA)</small></div>
+    <div class="metric"><b>+35%</b><small>Retorno anual · trading IA</small></div>
     <div class="metric"><b>−70%</b><small>Costes vía RPA</small></div>
-    <div class="metric"><b>313%</b><small>ROI proyectado (3 años)</small></div>
+    <div class="metric"><b>313%</b><small>ROI proyectado · 3 años</small></div>
   </section>
 
   <div class="grid">
-    <!-- MAIN COLUMN -->
+    <!-- MAIN -->
     <div class="col">
 
-      <section class="card">
-        <h2>Perfil profesional</h2>
-        <p style="margin:0;color:var(--ink-soft)">
-          Físico y matemático reconvertido en <b>Arquitecto de Software Full-Stack</b> y <b>Consultor de IA</b>.
-          Diseño e implemento sistemas operativos corporativos mediante <b>arquitecturas multiagente</b>, integrando
-          LLMs, bases de datos vectoriales y orquestación de flujos (n8n). Combino rigor algorítmico con una visión
-          orientada a <b>ROI y viabilidad de negocio</b>: no construyo webs, construyo &laquo;cerebros digitales&raquo;
-          que conectan operaciones, logística y ventas para escalar empresas.
+      <section class="card reveal">
+        <h2>Perfil</h2>
+        <p class="lede2">
+          <span class="hl">Físico y matemático</span> reconvertido en Arquitecto de Software Full-Stack y Consultor de IA.
+          Diseño e implemento <b>sistemas operativos corporativos</b> con arquitecturas multiagente, integrando LLMs,
+          bases de datos vectoriales y orquestación de flujos (n8n). Combino rigor algorítmico con visión de
+          <b>ROI y negocio</b>: no construyo webs, construyo sistemas que conectan operaciones, logística y ventas.
         </p>
       </section>
 
-      <section class="card">
+      <section class="card reveal">
         <h2>Experiencia</h2>
 
         <div class="job">
           <div class="top">
-            <div><span class="pos">CEO · CTO · Lead AI Engineer</span> — <span class="co">DUSOLAI Solutions, S.L.</span></div>
-            <span class="when">20XX — Actualidad</span>
+            <div><span class="pos">CEO · CTO · Lead AI Engineer</span> &nbsp;<span class="co">DUSOLAI Solutions, S.L.</span></div>
+            <span class="when">20XX — ACTUAL</span>
           </div>
           <ul>
-            <li>Lideré <b>+50 proyectos</b> con un <b>95% de satisfacción</b> de clientes y un <b>ROI medio de 3×</b>.</li>
-            <li>Desarrollé algoritmos de <b>trading financiero con IA</b> (SPY, BTC/USD) con un <b>retorno anualizado del +35%</b>.</li>
+            <li>Lideré <b>+50 proyectos</b> con un <b>95% de satisfacción</b> y un <b>ROI medio de 3×</b>.</li>
+            <li>Desarrollé algoritmos de <b>trading con IA</b> (SPY, BTC/USD) con <b>+35% de retorno anualizado</b>.</li>
             <li>Implementé <b>RPA e hiperautomatización</b> reduciendo costes operativos <b>hasta un 70%</b>.</li>
-            <li>Diseñé <b>arquitecturas multiagente</b> (n8n, OpenClaw) y productos SaaS internos (KAIROS, The Unstoppable Factory) con LLMs.</li>
+            <li>Diseñé <b>arquitecturas multiagente</b> (n8n, OpenClaw) y SaaS internos con LLMs (KAIROS, The Unstoppable Factory).</li>
           </ul>
           <div class="tags">
-            <span class="tag-chip">Python</span><span class="tag-chip">FastAPI</span><span class="tag-chip">React</span>
-            <span class="tag-chip">Next.js</span><span class="tag-chip">n8n</span><span class="tag-chip">Supabase</span>
-            <span class="tag-chip">PostgreSQL</span><span class="tag-chip">Pinecone</span><span class="tag-chip">OpenAI / Claude / Gemini API</span>
-            <span class="tag-chip">Docker</span>
+            <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">React</span>
+            <span class="chip">Next.js</span><span class="chip">n8n</span><span class="chip">Supabase</span>
+            <span class="chip">PostgreSQL</span><span class="chip">Pinecone</span><span class="chip">OpenAI · Claude · Gemini</span>
+            <span class="chip">Docker</span>
           </div>
         </div>
 
         <div class="job">
           <div class="top">
-            <div><span class="pos">Consultor Tecnológico · Arquitecto de Sistemas</span> — <span class="co">JMV Logística y Transporte</span></div>
-            <span class="when">20XX — Actualidad</span>
+            <div><span class="pos">Consultor Tecnológico · Arquitecto de Sistemas</span> &nbsp;<span class="co">JMV Logística y Transporte</span></div>
+            <span class="when">20XX — ACTUAL</span>
           </div>
           <ul>
-            <li>Diseñé y justifiqué un <b>Plan de Transformación Digital 360º</b> (ERP Gestiona + CRM): <b>ROI 313% a 3 años</b>, ahorro de <b>11.100 €/año</b> y <b>−50%</b> en tiempo administrativo.</li>
-            <li>Arquitecté un <b>Sistema Multiagente Híbrido (MVP)</b> y un WMS a medida, integrando bases de datos legacy (SAGE) con una <b>app Android nativa</b> para operarios.</li>
-            <li>Construí un &laquo;Cerebro Infinito&raquo; (<b>RAG + visión artificial</b>) para la identificación automática de recambios vía WhatsApp.</li>
+            <li>Diseñé un <b>Plan de Transformación Digital 360º</b> (ERP + CRM): <b>ROI 313% a 3 años</b>, <b>−11.100 €/año</b> y <b>−50%</b> de tiempo administrativo.</li>
+            <li>Arquitecté un <b>Sistema Multiagente Híbrido (MVP)</b> y un WMS a medida integrando SAGE con una <b>app Android nativa</b>.</li>
+            <li>Construí un &laquo;Cerebro Infinito&raquo; (<b>RAG + visión artificial</b>) para identificar recambios vía WhatsApp.</li>
             <li>Redacté el <b>Manual Corporativo</b> y los <b>SOPs</b> de operaciones, almacén y flota.</li>
           </ul>
           <div class="tags">
-            <span class="tag-chip">Python</span><span class="tag-chip">FastAPI</span><span class="tag-chip">n8n</span>
-            <span class="tag-chip">PostgreSQL</span><span class="tag-chip">Android (Kotlin)</span><span class="tag-chip">OCR / NLP</span>
-            <span class="tag-chip">Machine Learning</span><span class="tag-chip">Integración SAGE</span>
+            <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">n8n</span>
+            <span class="chip">PostgreSQL</span><span class="chip">Android · Kotlin</span><span class="chip">OCR · NLP</span>
+            <span class="chip">Machine Learning</span><span class="chip">SAGE</span>
           </div>
         </div>
 
         <div class="job">
           <div class="top">
-            <div><span class="pos">Tech &amp; Marketing Lead · Socio Operativo</span> — <span class="co">Frecuenzy (Sala Multiespacios)</span></div>
-            <span class="when">20XX — Actualidad</span>
+            <div><span class="pos">Tech &amp; Marketing Lead · Socio Operativo</span> &nbsp;<span class="co">Frecuenzy</span></div>
+            <span class="when">20XX — ACTUAL</span>
           </div>
           <ul>
-            <li>Desarrollé de cero un <b>CRM propio + sistema de ticketing</b> (React/Vite + Supabase) para stock en tiempo real, empleados, proveedores y finanzas.</li>
-            <li>Implementé venta de entradas con <b>Stripe</b> y <b>códigos QR dinámicos</b> enviados vía email y WhatsApp con orquestación en <b>n8n</b> (validación offline).</li>
-            <li>Lideré la estrategia de contenido con <b>IA generativa</b> (Veo 3, Midjourney, Flux) para la inauguración de una sala de <b>1.000 personas</b> en Cintruénigo.</li>
+            <li>Desarrollé de cero un <b>CRM + ticketing</b> (React/Vite + Supabase) para stock en tiempo real, empleados, proveedores y finanzas.</li>
+            <li>Venta de entradas con <b>Stripe</b> y <b>QR dinámicos</b> por email/WhatsApp orquestados en <b>n8n</b> (validación offline).</li>
+            <li>Lideré el contenido con <b>IA generativa</b> (Veo 3, Midjourney, Flux) para la apertura de una sala de <b>1.000 personas</b>.</li>
           </ul>
           <div class="tags">
-            <span class="tag-chip">React</span><span class="tag-chip">Vite</span><span class="tag-chip">Tailwind CSS</span>
-            <span class="tag-chip">Stripe</span><span class="tag-chip">Supabase</span><span class="tag-chip">Cloudflare Pages/Workers</span>
-            <span class="tag-chip">n8n</span><span class="tag-chip">GenAI (vídeo/imagen)</span>
+            <span class="chip">React</span><span class="chip">Vite</span><span class="chip">Tailwind</span>
+            <span class="chip">Stripe</span><span class="chip">Supabase</span><span class="chip">Cloudflare</span>
+            <span class="chip">n8n</span><span class="chip">GenAI vídeo/imagen</span>
           </div>
         </div>
 
         <div class="job">
           <div class="top">
-            <div><span class="pos">Desarrollador · Consultor Digital</span> — <span class="co">Three Inmobiliaria (PropTech)</span></div>
+            <div><span class="pos">Desarrollador · Consultor Digital</span> &nbsp;<span class="co">Three Inmobiliaria · PropTech</span></div>
             <span class="when">20XX</span>
           </div>
           <ul>
-            <li>Desarrollé una <b>landing corporativa de alto rendimiento</b> para una red de agentes colaboradores.</li>
-            <li>Estructuré el <b>copy comercial</b> y la arquitectura de persuasión orientada a captación B2B.</li>
+            <li>Landing corporativa de <b>alto rendimiento</b> para una red de agentes colaboradores.</li>
+            <li>Copy comercial y arquitectura de persuasión para captación <b>B2B</b>.</li>
           </ul>
           <div class="tags">
-            <span class="tag-chip">React</span><span class="tag-chip">HTML / CSS / JS</span><span class="tag-chip">Prompt Engineering</span>
+            <span class="chip">React</span><span class="chip">HTML · CSS · JS</span><span class="chip">Prompt Engineering</span>
           </div>
         </div>
       </section>
@@ -237,80 +270,76 @@
     <!-- SIDEBAR -->
     <div class="col">
 
-      <section class="card">
-        <h2>Habilidades</h2>
-
-        <div class="skillgroup">
+      <section class="card reveal">
+        <h2>Stack</h2>
+        <div class="sg">
           <h3>IA &amp; LLMs</h3>
           <div class="tags">
-            <span class="tag-chip">RAG</span><span class="tag-chip">Sistemas multiagente</span><span class="tag-chip">Pinecone</span>
-            <span class="tag-chip">OpenAI API</span><span class="tag-chip">Claude API</span><span class="tag-chip">Gemini API</span>
-            <span class="tag-chip">Prompt Engineering</span><span class="tag-chip">OpenClaw</span>
+            <span class="chip">RAG</span><span class="chip">Multiagente</span><span class="chip">Pinecone</span>
+            <span class="chip">OpenAI</span><span class="chip">Claude</span><span class="chip">Gemini</span>
+            <span class="chip">Prompt Eng.</span><span class="chip">OpenClaw</span>
           </div>
         </div>
-
-        <div class="skillgroup">
+        <div class="sg">
           <h3>Backend &amp; Datos</h3>
           <div class="tags">
-            <span class="tag-chip">Python</span><span class="tag-chip">FastAPI</span><span class="tag-chip">PostgreSQL</span>
-            <span class="tag-chip">Supabase</span><span class="tag-chip">Docker</span>
+            <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span>
+            <span class="chip">Supabase</span><span class="chip">Docker</span>
           </div>
         </div>
-
-        <div class="skillgroup">
+        <div class="sg">
           <h3>Frontend</h3>
           <div class="tags">
-            <span class="tag-chip">React</span><span class="tag-chip">Next.js</span><span class="tag-chip">Vite</span>
-            <span class="tag-chip">TypeScript</span><span class="tag-chip">Tailwind CSS</span>
+            <span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Vite</span>
+            <span class="chip">TypeScript</span><span class="chip">Tailwind</span>
           </div>
         </div>
-
-        <div class="skillgroup">
-          <h3>Automatización &amp; RPA</h3>
+        <div class="sg">
+          <h3>Automatización</h3>
           <div class="tags">
-            <span class="tag-chip">n8n</span><span class="tag-chip">Make</span><span class="tag-chip">Zapier</span>
-            <span class="tag-chip">Stripe</span><span class="tag-chip">Integraciones API</span>
+            <span class="chip">n8n</span><span class="chip">Make</span><span class="chip">Zapier</span>
+            <span class="chip">Stripe</span><span class="chip">APIs</span>
           </div>
         </div>
-
-        <div class="skillgroup">
+        <div class="sg">
           <h3>Móvil &amp; GenAI media</h3>
           <div class="tags">
-            <span class="tag-chip">Android (Kotlin)</span><span class="tag-chip">Midjourney</span><span class="tag-chip">Flux</span>
-            <span class="tag-chip">Veo 3</span><span class="tag-chip">Hailuo</span>
+            <span class="chip">Kotlin</span><span class="chip">Midjourney</span><span class="chip">Flux</span>
+            <span class="chip">Veo 3</span><span class="chip">Hailuo</span>
           </div>
         </div>
       </section>
 
-      <section class="card">
+      <section class="card reveal">
         <h2>Formación</h2>
         <ul class="mini">
           <li><b>Física y Matemáticas</b>Universidad de Salamanca (USAL) · Universidad Complutense de Madrid (UCM)</li>
         </ul>
-        <p class="note">↳ Opcional: añadir año de titulación.</p>
       </section>
 
-      <section class="card">
+      <section class="card reveal">
         <h2>Idiomas</h2>
         <div class="lang"><span><b>Español</b> · Nativo</span><span class="bar"><i style="width:100%"></i></span></div>
         <div class="lang"><span><b>Inglés</b> · Técnico/Profesional</span><span class="bar"><i style="width:65%"></i></span></div>
-        <p class="note">↳ Confirmar nivel oral (MCER).</p>
       </section>
 
-      <section class="card">
+      <section class="card reveal">
         <h2>Fortalezas</h2>
         <ul class="mini">
-          <li><b>Pensamiento arquitectónico + de negocio</b>Traduzco software complejo en propuestas de ROI para dirección.</li>
-          <li><b>Ecosistemas end-to-end</b>Del backend y las BBDD vectoriales al frontend, la orquestación y los pagos.</li>
-          <li><b>Agilidad iterativa</b>MVPs a gran velocidad; adopción continua de nuevas tecnologías.</li>
+          <li><b>Arquitectura + negocio</b>Traduzco software complejo en propuestas de ROI para dirección.</li>
+          <li><b>End-to-end</b>Del backend y las BBDD vectoriales al frontend, la orquestación y los pagos.</li>
+          <li><b>Velocidad iterativa</b>MVPs a gran ritmo y adopción continua de nuevas tecnologías.</li>
         </ul>
       </section>
 
     </div>
   </div>
 
-  <footer>
-    Diego García Vera · CV interactivo · Actualizado 2026 — <span class="noprint">Pulsa <b>Ctrl/Cmd + P</b> para guardar como PDF</span>
-  </footer>
+  <footer>Diego García Vera · <span class="g">Arquitecto de Software &amp; AI Engineer</span> · 2026</footer>
 
 </div>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i*60)+'ms';io.observe(el)});
+</script>
